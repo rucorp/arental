@@ -57,14 +57,16 @@
 
   /* ── Theme switcher ── */
   function setTheme(theme) {
-    document.body.className = theme;
+    var root = document.documentElement;
+    root.classList.remove('dark', 'light', 'bright');
+    root.classList.add(theme);
     try { localStorage.setItem('arental_theme', theme); } catch (e) {}
     document.querySelectorAll('.theme-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-theme') === theme);
     });
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      var bg = getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#0a0a0c';
+      var bg = getComputedStyle(root).getPropertyValue('--bg').trim() || '#0a0a0c';
       meta.setAttribute('content', bg);
     }
   }
@@ -107,6 +109,7 @@
   if (burger && overlay) {
     function closeMenu() {
       overlay.classList.remove('open');
+      overlay.setAttribute('inert', '');
       burger.classList.remove('active');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
@@ -115,6 +118,7 @@
 
     function openMenu() {
       overlay.classList.add('open');
+      overlay.removeAttribute('inert');
       burger.classList.add('active');
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -270,25 +274,6 @@
     counterObserver.observe(el);
   });
 
-  /* ── Spotlight cursor ── */
-  var spotlight = document.getElementById('spotlight');
-  var hero = document.querySelector('.hero');
-
-  if (spotlight && hero) {
-    hero.addEventListener('mousemove', function (e) {
-      var rect = hero.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      spotlight.style.left = e.clientX + 'px';
-      spotlight.style.top = e.clientY + 'px';
-      spotlight.classList.add('active');
-    });
-
-    hero.addEventListener('mouseleave', function () {
-      spotlight.classList.remove('active');
-    });
-  }
-
   /* ── Logo scroll to top ── */
   var logoTop = document.getElementById('logoTop');
   if (logoTop) {
@@ -310,8 +295,10 @@
     onScroll(function (e) {
       if (e.animatedScroll > 500) {
         backToTop.classList.add('visible');
+        backToTop.removeAttribute('inert');
       } else {
         backToTop.classList.remove('visible');
+        backToTop.setAttribute('inert', '');
       }
     });
 

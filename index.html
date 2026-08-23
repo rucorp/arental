@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>АТМОСФЕРА — Digital-агентство</title>
-  <meta name="description" content="АТМОСФЕРА — digital-агентство полного цикла: лидогенерация, интеграции, автоматизация рекламы и CRM-упаковка бизнеса. Собираем маркетинг в единую систему роста. Бесплатный аудит." />
+  <meta name="description" content="АТМОСФЕРА — digital-агентство: лидогенерация, автоматизация рекламы и CRM-упаковка бизнеса. Бесплатный аудит." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="АТМОСФЕРА — Digital-агентство" />
   <meta property="og:description" content="Лидогенерация, интеграции, автоматизация рекламных потоков и CRM-упаковка бизнеса. Бесплатный аудит." />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:url" content="https://arental.ru/" />
-  <meta property="og:image" content="https://arental.ru/assets/og-image.png" />
-  <meta property="og:image:width" content="1280" />
-  <meta property="og:image:height" content="640" />
+  <meta property="og:image" content="assets/og-image-C.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="АТМОСФЕРА — Digital-агентство" />
   <meta name="twitter:description" content="Лидогенерация, интеграции, автоматизация рекламы и CRM-упаковка. Бесплатный аудит." />
-  <meta name="twitter:image" content="https://arental.ru/assets/og-image.png" />
+  <meta name="twitter:image" content="assets/og-image-C.png" />
   <meta name="theme-color" content="#0a0a0c" />
   <meta name="robots" content="index, follow" />
   <meta property="og:site_name" content="АТМОСФЕРА" />
@@ -24,8 +24,10 @@
   <meta property="og:image:type" content="image/png" />
   <link rel="canonical" href="https://arental.ru/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="style.css" />
   <script>try{var t=localStorage.getItem('arental_theme')||'dark';var d=document.documentElement;d.classList.add(t==='light'?'light':(t==='bright'?'bright':'dark'));d.classList.add('js');}catch(e){document.documentElement.classList.add('dark','js');}</script>
@@ -43,7 +45,7 @@
       } catch (e) {}
     })();
   </script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,6 +97,7 @@
 </head>
 <body>
 
+  <header>
   <nav id="navbar">
     <div class="nav-inner">
       <span class="nav-logo" id="logoTop" role="button" tabindex="0" aria-label="Наверх">АТМОСФЕРА</span>
@@ -109,13 +112,14 @@
         <button class="theme-btn" data-theme="light" aria-label="Светлая"></button>
         <button class="theme-btn" data-theme="bright" aria-label="Яркая"></button>
       </div>
-      <button class="nav-burger" id="navBurger" aria-label="Меню">
+      <button class="nav-burger" id="navBurger" aria-label="Меню" aria-expanded="false" aria-controls="menuOverlay">
         <span></span><span></span>
       </button>
     </div>
   </nav>
+  </header>
 
-  <div class="menu-overlay" id="menuOverlay">
+  <div class="menu-overlay" id="menuOverlay" inert>
     <div class="menu-panel">
       <div class="menu-links">
         <a href="#services">Услуги</a>
@@ -130,11 +134,9 @@
     </div>
   </div>
 
-  <button id="backToTop" class="back-to-top" aria-label="Наверх">
+  <button id="backToTop" class="back-to-top" aria-label="Наверх" inert>
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
-
-  <div id="spotlight" class="spotlight"></div>
 
   <main>
     <section class="hero">
@@ -160,7 +162,7 @@
         <div class="hero-visual reveal">
           <div class="hero-card">
             <div class="hero-card-dot"></div>
-            <h3>Бесплатный аудит</h3>
+            <h2>Бесплатный аудит</h2>
             <p>Напишите — предложим план улучшений и прогноз по лидам.</p>
             <div class="hero-card-links">
               <a href="mailto:hello@arental.ru" class="btn btn-primary btn-sm">hello@arental.ru</a>
@@ -170,7 +172,6 @@
           </div>
         </div>
       </div>
-      <div class="hero-glow"></div>
     </section>
 
     <section class="section section-dark">
@@ -190,22 +191,22 @@
           <div class="about-values reveal">
             <div class="value-card">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-              <h4>На результат</h4>
+              <h3>На результат</h3>
               <p>KPI и SLA в каждом договоре</p>
             </div>
             <div class="value-card">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
-              <h4>Комплексно</h4>
+              <h3>Комплексно</h3>
               <p>Маркетинг + IT + аналитика</p>
             </div>
             <div class="value-card">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              <h4>Прозрачно</h4>
+              <h3>Прозрачно</h3>
               <p>Дашборды и отчёты 24/7</p>
             </div>
             <div class="value-card">
               <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-              <h4>Быстро</h4>
+              <h3>Быстро</h3>
               <p>Запуск кампаний от 3 дней</p>
             </div>
           </div>
@@ -375,7 +376,7 @@
           <h2>С кем мы работаем</h2>
         </div>
         <div class="partner reveal">
-          <img src="partner-it-sports.png" alt="ITSPORTS" class="partner-logo" loading="lazy" />
+          <img src="partner-it-sports.png" alt="ITSPORTS" class="partner-logo" width="460" height="110" loading="lazy" />
         </div>
       </div>
     </section>
@@ -388,11 +389,8 @@
         </div>
         <div class="process-grid">
           <div class="process-step reveal"><span class="process-num">01</span><div><h3>Бесплатная консультация</h3><p>Знакомимся, разбираем задачи и цели</p></div></div>
-          <div class="process-line"></div>
           <div class="process-step reveal"><span class="process-num">02</span><div><h3>Аудит и дорожная карта</h3><p>Анализируем, предлагаем план и смету</p></div></div>
-          <div class="process-line"></div>
           <div class="process-step reveal"><span class="process-num">03</span><div><h3>Внедрение и запуск</h3><p>Реализуем, тестируем, запускаем</p></div></div>
-          <div class="process-line"></div>
           <div class="process-step reveal"><span class="process-num">04</span><div><h3>Оптимизация и масштаб</h3><p>Улучшаем показатели и расширяемся</p></div></div>
         </div>
       </div>
@@ -499,14 +497,17 @@
             </form>
           </div>
         </div>
-         <div class="contact-note reveal contact-note--center">
-          <p>Мы на связи. Почти всегда.</p>
-          <p class="contact-copy">© АТМОСФЕРА, 2026</p>
-        </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>Мы на связи. Почти всегда.</p>
+      <p class="contact-copy">© АТМОСФЕРА, 2026</p>
+    </div>
+  </footer>
+
+  <script defer src="script.js"></script>
 </body>
 </html>
