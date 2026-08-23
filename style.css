@@ -1315,7 +1315,7 @@ html.js .reveal.visible {
   .review { padding: 24px; }
   .tool-item { font-size: 13px; padding: 8px 14px; }
   .hero-card { max-width: 100%; }
-  .hero-card-links { flex-direction: row; }
+  .hero-card-links { flex-direction: column; }
 }
 
 @media (max-width: 480px) {
